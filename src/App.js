@@ -24,7 +24,8 @@ const App = (props) => {
         {authedUser === null || !authedUser ? (
           <Route render={() => <LoginPage users={users} />} />
         ) : (
-          <div>
+            //TODO:add 404 page 
+            <div>
             <NavBar authedUser={authedUser} setLoggedInUser={setLoggedInUser} />
             <Switch>
               <Route exact path="/Standings" component={() => <Standings />} />

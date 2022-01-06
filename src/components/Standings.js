@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+//TODO: Change the name
 const Standing = (props) => {
   const renderStandingTile = (user, index) => {
     const questionsAnswered = Object.keys(user.answers).length;

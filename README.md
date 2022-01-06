@@ -97,4 +97,8 @@ Your code will talk to the database via 4 methods:
 
 ## Contributing
 
+<<<<<<< HEAD
 This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+=======
+This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+>>>>>>> c4ac6a49ec389e71b2a3fe02d0b5ead5a6bf0c73
