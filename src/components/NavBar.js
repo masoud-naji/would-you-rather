@@ -19,8 +19,8 @@ const NavBar = (props) => {
         <Link to="/add">
           <div className="newPoll">New Survey</div>
         </Link>
-        <Link to="/Standings">
-          <div className="standings">Standings</div>
+        <Link to="/leaderboard">
+          <div className="leaderboard">leaderboard</div>
         </Link>
       </div>
       <div className="rightNav">

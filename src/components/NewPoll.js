@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import { saveQuestionAction } from "../../src/redux/actions/questions";
 
+
 class NewPoll extends Component {
   state = {
     optionOneText: "",

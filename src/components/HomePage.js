@@ -9,6 +9,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     props.dispatch(getQuestions(props.authedUser));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectTab = (event) => {

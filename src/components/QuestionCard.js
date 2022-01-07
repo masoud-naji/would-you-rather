@@ -5,31 +5,39 @@ import { getQuestions } from "../../src/redux/actions/questions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import AnswerQuestion from "./AnswerQuestion";
+import { Redirect } from "react-router-dom";
 
 const QuestionCard = (props) => {
   useEffect(() => {
     props.dispatch(getQuestions(props.authedUser));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
     formattedQuestion: { question, user },
-    badPath,
+    wrongPath,
   } = props;
+
+  if (wrongPath) {
+    console.log("Bad Path");
+    return <Redirect to="/NotFound" />;
+  }
   if (!question)
     return (
       <div className="spinner">
         <Loader
-          type="Puff"
-          color="#00BFFF"
+          type="Bars"
+          color="rgba(0, 37, 5,1"
           height={100}
           width={100}
           timeout={3000}
         />
       </div>
     );
-  if (badPath)
-    return <div className="flexCenter">Sorry that page does not exist</div>;
-  if (question.answered) return <Result qid={question.id} user={user} />;
+  if (question.answered) {
+    console.log("quession id ok");
+    return <Result qid={question.id} user={user} />;
+  }
   return (
     <div className="homePageContainer">
       <div className="homePage" style={{ margin: "10px", minWidth: "80vh" }}>
@@ -62,12 +70,27 @@ const mapStateToProps = (state, ownProps) => {
       params: { qid },
     },
   } = ownProps;
-  const badPath = !questions[qid];
-  const question = !badPath && questions[qid];
-  const user = !badPath && users[questions[qid].author];
+
+  //checked: double check if its wrong path
+  // if (questions[qid]) {
+  //   console.log(Object.keys(questions));
+  //   console.log(Object.values(questions[qid])[0]);
+  //   var isitValisquestion = "";
+  //   var newQuestion = Object.values(questions[qid])[0];
+  //   isitValisquestion = Object.keys(questions).includes(newQuestion);
+  //   console.log(isitValisquestion);
+  // } else {
+  //   console.log("wrong path!!!");
+  // }
+
+  const wrongPath = !questions[qid] || questions[qid] === undefined;
+  const question = !wrongPath && questions[qid];
+  const user = !wrongPath && users[questions[qid].author];
+  console.log(wrongPath);
+
   return {
     formattedQuestion: { question, user },
-    badPath,
+    wrongPath,
     authedUser: state.authedUser,
   };
 };

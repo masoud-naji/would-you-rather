@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 //TODO: Change the name
-const Standing = (props) => {
+const Leaderboard = (props) => {
   const renderStandingTile = (user, index) => {
     const questionsAnswered = Object.keys(user.answers).length;
     const questionsAsked = user.questions.length;
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => {
   return { users: sortedUserList };
 };
 
-export default connect(mapStateToProps)(Standing);
+export default connect(mapStateToProps)(Leaderboard);

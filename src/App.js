@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import LoginPage from "../src/components/LoginPage";
 import LandingPage from "./components/LandingPage";
 import NewPoll from "../src/components/NewPoll.js";
-import Standings from "../src/components/Standings.js";
+import NotFound from "../src/components/NotFound.js";
+import Leaderboard from "./components/leaderboard.js";
 import QuestionCard from "../src/components/QuestionCard";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { getUsersAction } from "../src/redux/actions/shared";
@@ -14,6 +15,7 @@ import "./App.css";
 const App = (props) => {
   useEffect(() => {
     props.getUsersAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { users, authedUser, setLoggedInUser } = props;
@@ -24,14 +26,18 @@ const App = (props) => {
         {authedUser === null || !authedUser ? (
           <Route render={() => <LoginPage users={users} />} />
         ) : (
-            //TODO:add 404 page 
-            <div>
+          <div>
             <NavBar authedUser={authedUser} setLoggedInUser={setLoggedInUser} />
             <Switch>
-              <Route exact path="/Standings" component={() => <Standings />} />
+              <Route
+                exact
+                path="/leaderboard"
+                component={() => <Leaderboard />}
+              />
               <Route exact path="/" component={() => <LandingPage />} />
               <Route exact path="/add" component={() => <NewPoll />} />
               <Route path="/questions/:qid" component={QuestionCard} />
+              <Route path="/*" component={() => <NotFound />} />
             </Switch>
           </div>
         )}

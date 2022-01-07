@@ -6,6 +6,68 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
+### `npm install`
+
+Install all the depedencies for the project
+To read more about (https://www.npmjs.com/package/react).
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+## App Functionalities
+
+1. Users will be able to login or logout , Sign up an account;
+2. Once the user login, the home page should show which user is using the app;
+3. User will be able to `Toggle` between his/her `answered` and `unanswered` polls on the home page, which is located at the root;
+4. The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom);
+5. The `unanswered` questions should be shown by default;
+6. By clicking each polling question, we can go to the route `questions/:question_id` get the detail of question:
+    |
+    |--- `Text “Would You Rather”;`
+    |--- `Avatar of the user who posted the polling question;`
+    |--- `two options`
+
+7. By clicking the answered question in home page, the two options contain the following:
+    |
+    |--- `Text of the option;`
+    |--- `Number of people who voted for that option;`
+    |--- `Percentage of people who voted for that option`
+    |--- `The option selected by the logged-in user should be clearly marked`
+
+8. A navigation bar to navigate in the app:
+    |--- `Home page`
+    |--- `New Survey`
+    |--- `leaderboard`
+
+9. What happened after user votes in a poll:
+    |
+    |--- `all of the information about this poll should display includes users just vote`
+    |--- `One user only can vote once per poll`
+    |--- `When user navigate back to home, the voted poll should in answer part`
+
+10. How to post a new question: 
+    |
+    |--- `post through ```/add``` route `
+    |--- `The application should show the text “Would You Rather” and have a form for creating two options`
+
+11. After post a new question:
+    |
+    |--- `a new poll should be created and user should be taken to home page`
+
+12. What to include in the `leaderboard` page/ `/leaderboard` route:
+    |
+    |--- `User's Name`
+    |--- `User's Picture`
+    |--- `Number of questions user asked`
+    |--- `Number of questions user answered`
+    |--- `Users should be descending order based on the sum of questions asked and answered`
+
+
 ## Data
 
 There are two types of objects stored in our database:
